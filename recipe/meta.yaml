@@ -1,5 +1,5 @@
 {% set name = "glodap" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glodap-{{ version }}.tar.gz
-  sha256: c2010963e7511fe1f0bc98ce82a0d2614b08dc61cf5ccbd3162e1c768e73f0eb
+  sha256: 85b4e3769652f074368e4e002990d7214f5d86a7c47f790bf655fd0392b608cb
 
 build:
   noarch: python
