@@ -1,14 +1,14 @@
 {% set name = "glodap" %}
-{% set version = "0.3" %}
-{% set python_min = "3.10" %}
+{% set version = "0.4" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glodap-{{ version }}.tar.gz
-  sha256: 85b4e3769652f074368e4e002990d7214f5d86a7c47f790bf655fd0392b608cb
+  url: https://pypi.org/packages/source/g/glodap/glodap-{{ version }}.tar.gz
+  sha256: d66a3ee96f458733a5c07df0558bb74a0e6f6ff632e0a87a56d936626a96f3cc
 
 build:
   noarch: python
@@ -22,9 +22,9 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - pandas
-    - requests
-    - scipy
+    - pandas >=3.0.3,<4
+    - pooch >=1.9.0,<2
+    - scipy >=1.17.1,<2
 
 test:
   imports:
@@ -36,7 +36,7 @@ test:
     - python {{ python_min }}
 
 about:
-  summary: 'GLODAP downloader and importer in Python'
+  summary: GLODAP downloader and importer in Python
   license: GPL-3.0-only
   license_file: LICENSE
   home: https://github.com/mvdh7/glodap
