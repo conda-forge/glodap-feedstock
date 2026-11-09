@@ -1,0 +1,45 @@
+schema_version: 1
+
+context:
+  version: "1.0.0"
+  python_min: "3.11"
+
+package:
+  name: glodap
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/g/glodap/glodap-${{ version }}.tar.gz
+  sha256: 984739a84892a4ef6cbdf8aebcdac114edfde09dc7ab68f3ada1a94330e3e003
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python >={{ python_min }}
+    - setuptools
+    - pip
+  run:
+    - python >={{ python_min }}
+    - pandas >=3,<4
+    - pooch >=1.9.0,<2
+    - scipy >=1.17,<2
+
+tests:
+  - python:
+      imports:
+        - glodap
+      pip_check: true
+
+about:
+  summary: GLODAP downloader and importer in Python
+  license: GPL-3.0-only
+  license_file: LICENSE
+  home: https://github.com/mvdh7/glodap
+
+extra:
+  recipe-maintainers:
+    - mvdh7
