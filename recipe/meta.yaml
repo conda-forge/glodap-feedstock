@@ -7,7 +7,7 @@ package:
   version: "{{ version }}"
 
 source:
-  url: https://files.pythonhosted.org/packages/source/g/glodap/glodap-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/g/glodap/glodap-{{ version }}.tar.gz
   sha256: 984739a84892a4ef6cbdf8aebcdac114edfde09dc7ab68f3ada1a94330e3e003
 
 build:
